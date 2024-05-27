@@ -70,9 +70,6 @@ function initializeServiceWorker() {
   {
     console.log('Service Workers are not supported!')
   }
-
-
-
   // STEPS B6 ONWARDS WILL BE IN /sw.js
 }
 
