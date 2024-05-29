@@ -7,7 +7,7 @@ const CACHE_NAME = 'lab-8-starter';
 self.addEventListener('install', function (event) {
   event.waitUntil(
     (async () => {
-      const cache = await caches.open(CACHE_NAME);
+      const cache_caches = await caches.open(CACHE_NAME);
       // B6. Add all of the URLs from RECIPE_URLs here so that they are
       //     added to the cache when the ServiceWorker is installed
       // CONSTANTS
@@ -19,7 +19,7 @@ self.addEventListener('install', function (event) {
         'https://adarsh249.github.io/Lab8-Starter/recipes/5_healthy-thanksgiving-recipe-crockpot-turkey-breast.json',
         'https://adarsh249.github.io/Lab8-Starter/recipes/6_one-pot-thanksgiving-dinner.json',
       ];
-      await cache.addAll(RECIPE_URLs);
+      await cache_caches.addAll(RECIPE_URLs);
     })()
   );
 });
@@ -50,9 +50,12 @@ self.addEventListener('fetch', function (event) {
       const response = await cache.match(event.request);
       // B8. If the request is in the cache, return with the cached version.
       //     Otherwise fetch the resource, add it to the cache, and return the network response.
-      if (response) {
+      if (response) 
+      {
         return response;
-      } else {
+      } 
+      else 
+      {
         const networkResponse = await fetch(event.request);
         await cache.put(event.request, networkResponse.clone());
         return networkResponse;

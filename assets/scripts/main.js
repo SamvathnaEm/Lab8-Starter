@@ -71,7 +71,7 @@ function initializeServiceWorker() {
     console.log('Service Workers are not supported!')
   }
   // STEPS B6 ONWARDS WILL BE IN /sw.js
-}
+}  
 
 /**
  * Reads 'recipes' from localStorage and returns an array of
@@ -172,11 +172,12 @@ function saveRecipesToStorage(recipes) {
  * @param {Array<Object>} recipes An array of recipes
  */
 function addRecipesToDocument(recipes) {
-  if (!recipes) return;
-  let main = document.querySelector('main');
-  recipes.forEach((recipe) => {
-    let recipeCard = document.createElement('recipe-card');
-    recipeCard.data = recipe;
-    main.append(recipeCard);
+  if (!recipes) 
+    return;
+  let mainElement = document.querySelector('main');
+  recipes.forEach((eachRecipe) => {
+    let eachRecipeCard = document.createElement('recipe-card');
+    eachRecipeCard.data = eachRecipe;
+    mainElement.append(recipeCard);
   });
 }
