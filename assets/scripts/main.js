@@ -178,6 +178,6 @@ function addRecipesToDocument(recipes) {
   recipes.forEach((eachRecipe) => {
     let eachRecipeCard = document.createElement('recipe-card');
     eachRecipeCard.data = eachRecipe;
-    mainElement.append(recipeCard);
+    mainElement.append(eachRecipeCard);
   });
 }
